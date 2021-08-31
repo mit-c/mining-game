@@ -8,7 +8,7 @@ def game():
     #sprites, sounds, levels = load("sounds")
     pyg.init()
     screen = pyg.display.set_mode((WIDTH, HEIGHT))
-    scene = Scene(None, PlayerPhysics(pos=Position(WIDTH//2, HEIGHT//2)))
+    scene = Scene(None, PlayerPhysics(pos=Position()))
     return screen, scene
 
 def load():

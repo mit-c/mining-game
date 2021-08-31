@@ -9,7 +9,7 @@ class Renderer:
         self.screen = screen
         self.maps = maps
         self.sprites = sprites
-        
+        # We want to translate our map by 
     
         
 
@@ -29,18 +29,23 @@ class Renderer:
         pass
 
     def paint_player(self):
-        # todo change so play in centre
+        
         player_pos = self.scene.player_physics.pos
-        pyg.draw.circle(self.screen, (250,0,0), (player_pos.x, player_pos.y),10)
+        pyg.draw.circle(self.screen, (250,0,0), (WIDTH // 2, HEIGHT // 2),10)
         
     def paint_collision_map(self):
         # We only want to choose random numbers once
         
         sprites = self.sprites
         count = 0
-        for j,line in enumerate(self.maps["collision_map"].array):
-            for i,char in enumerate(line):
+        self.maps["collision_map"].transform_by_player_pos(self.scene.player_physics.pos)
+        col_dict = self.maps["collision_map"].transformed_dict
+        
+        for pos in col_dict:
+            
+            for char in (col_dict[pos]):
                 if not char == "|":
                     continue
-                self.screen.blit(sprites.get_index("rocks",count), (i*CELL_WIDTH, j*CELL_WIDTH))
+                
+                self.screen.blit(sprites.get_index("rocks",count), pos.get_tuple())
                 count += 1

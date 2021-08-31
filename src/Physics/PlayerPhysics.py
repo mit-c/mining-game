@@ -2,7 +2,7 @@
 from Physics.PhysicsInterface import PhysicsInterface
 from Physics.Velocity import Velocity
 from TwoDim import TwoDim
-from parameters import ACCELERATION, MAX_SPEED
+from parameters import ACCELERATION, CELL_WIDTH, MAX_SPEED
 from Physics.Acceleration import Acceleration
 from Physics.Position import Position
 class PlayerPhysics(PhysicsInterface):

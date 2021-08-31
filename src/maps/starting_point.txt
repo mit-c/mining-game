@@ -3,8 +3,8 @@
 % I imagine I will eventually use multiple map layers
 % Walls = |
 
-|                     |
-|                     |
- |                   |
- |                  |
-  |                |
+|                  |
+|          |      |
+ |    |           |
+ |                |
+  |               |
