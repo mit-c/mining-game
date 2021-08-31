@@ -1,0 +1,10 @@
+% Lines with `%` at index 0 will be ignored
+% TODO: Create map which we can render with sprites
+% I imagine I will eventually use multiple map layers
+% Walls = |
+
+|                     |
+|                     |
+ |                   |
+ |                  |
+  |                |
