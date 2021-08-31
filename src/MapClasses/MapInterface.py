@@ -4,8 +4,11 @@ from parameters import CELL_WIDTH
 
 
 class MapInterface:
-    def __init__(self, file_name) -> None:
-        self.dict  = self.read_file(file_name)
+    def __init__(self, file_name="") -> None:
+        if file_name:
+            self.dict  = self.read_file(file_name)
+        else:
+            self.dict ={}
         self.file_name = file_name
         self.transformed_dict = {}
     def read_file(self,file_name):

@@ -14,6 +14,7 @@ class Renderer:
         
 
     def paint(self):
+        self.screen.fill(pyg.Color(0,0,0,0))
         self.paint_background()
         self.paint_collision_map()
         self.paint_entities()
@@ -21,16 +22,27 @@ class Renderer:
         pyg.display.flip()
         
     def paint_background(self):
-        background = pyg.Surface((WIDTH,HEIGHT))
-        background = background.convert()
-        background.fill((150,10,150)) # red
-        self.screen.blit(background, (0,0))
+        background_tiles = self.sprites.image_dict["tiles"] # there are 8 tiles
+        player_pos = self.scene.player_physics.pos
+        tile = self.sprites.get_index("tiles", 0)
+        initial_x = (-player_pos.x % CELL_WIDTH) + WIDTH // 2
+        initial_y = (-player_pos.y % CELL_WIDTH) + HEIGHT // 2
+        for i in range(-15,15):
+            
+            for j in range(-15,15):
+                x = initial_x + i * CELL_WIDTH
+                y = initial_y + j * CELL_WIDTH
+                self.screen.blit(tile,(x, y))
+
+
+
+                
+            
+
     def paint_entities(self):
         pass
 
     def paint_player(self):
-        
-        player_pos = self.scene.player_physics.pos
         pyg.draw.circle(self.screen, (250,0,0), (WIDTH // 2, HEIGHT // 2),10)
         
     def paint_collision_map(self):

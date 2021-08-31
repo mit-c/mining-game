@@ -1,5 +1,6 @@
 from SpriteReader import SpriteReader
 from MapClasses.CollisionMap import CollisionMap
+from MapClasses.BackgroundMap import BackgroundMap
 import pygame as pyg
 import init
 from InputHandler import InputHandler
@@ -8,7 +9,8 @@ from Renderer import Renderer
 
 def main():
     maps = {
-        "collision_map": CollisionMap("src\maps\starting_point.txt")
+        "collision_map": CollisionMap("src\maps\starting_point.txt"),
+        "background_map": BackgroundMap()
     }
     screen, scene = init.game()
     running = True
